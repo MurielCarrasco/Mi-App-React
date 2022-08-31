@@ -1,11 +1,14 @@
 import './App.css';
-import './assets/css/navbar.css';
-import NavBar from './components/NavBar';
+import './components/navbar/navbar.css';
+import NavBar from './components/navbar/NavBar';
+import ItemListContainer from './components/ItemListContainer/ItemListContainer';
+import './components/CartWidget/cartWidget.css'
 
 function App() {
   return (
     <div>
       <NavBar />
+      <ItemListContainer greeting="Estamos Mejorando la página, Pronto estará disponible !"/>
       </div>
   );
 }
