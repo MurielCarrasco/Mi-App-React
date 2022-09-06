@@ -2,7 +2,9 @@ import './App.css';
 import './components/navbar/navbar.css';
 import NavBar from './components/navbar/NavBar';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
-import './components/CartWidget/cartWidget.css'
+import './components/CartWidget/cartWidget.css';
+
+
 
 function App() {
   return (

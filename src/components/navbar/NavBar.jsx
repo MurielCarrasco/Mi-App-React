@@ -1,6 +1,6 @@
 import React from "react";
 import Logo from "../../assets/logo.png";
-import Cart from "../CartWidget/CartWidget";
+import CartWidget from "../CartWidget/CartWidget";
 
 const NavBar = () => {
     return (
@@ -25,7 +25,7 @@ const NavBar = () => {
                     <button className="btn btn-light" type="submit">Search</button>
                 </form>
                 <div className="col-md-2 d-flex align-items-center justify-content-center" >
-                    <a href=""> <Cart /> </a>
+                    <a href=""> <CartWidget /> </a>
                 </div>
             </div>
         </nav>
