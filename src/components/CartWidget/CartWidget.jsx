@@ -3,7 +3,7 @@ import React from "react";
 
 const CartWidget = () => {
     return (
-            <i class="bi bi-cart2 carro" ></i>    
+            <i className="bi bi-cart2 carro" ></i>    
     )
 }
 

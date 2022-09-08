@@ -6,7 +6,7 @@ const ItemCount = ({stock, initial, onAdd}) => {
     const [itemInitial, setItemInitial] = useState (initial);
     const [itemAdd, setItemAdd] = useState (onAdd);
 
-    const quitarItems = (valor) => {
+    /* const quitarItems = (valor) => {
         if (valor > 0) {
             setItemInitial(valor);
         }
@@ -16,8 +16,13 @@ const ItemCount = ({stock, initial, onAdd}) => {
         if (valor <= itemStock) {
             setItemInitial(valor);
         }
+    } */
+    
+    const modificarItems = (valor) => {
+        if (valor <=itemStock && valor > 0 ){
+            setItemInitial (valor);
+        }
     }
-
     const agregarProducto = () =>{
         if (itemInitial <= itemStock) {
             setItemStock (itemStock - itemInitial);
@@ -32,10 +37,10 @@ const ItemCount = ({stock, initial, onAdd}) => {
                     <p className="text-start">ZAPATILLA HOMBRE COLOR NEGRO (img en proceso)</p>
                     <div className="input-group">
                         <input className="btn btn-secondary" type="button" value="-" onClick={() =>
-                        {quitarItems(itemInitial - 1)}} />
+                        {modificarItems(itemInitial - 1)}} />
                         <input className="form-control text-center" type="text" value={itemInitial} onChange={()=>{}} />
                         <input className="btn btn-secondary" type="button" value="+" onClick={() =>
-                        {agregarItems(itemInitial + 1)}} />
+                        {modificarItems(itemInitial + 1)}} />
                         
                     </div>
                     <div className="d-grid pt-3 gap-2">

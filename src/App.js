@@ -10,7 +10,8 @@ function App() {
   return (
     <div>
       <NavBar />
-      <ItemListContainer greeting="Estamos Mejorando la página, Pronto estará disponible !"/>
+      <ItemListContainer texto="Estamos creando cards"
+      /* greeting="Estamos Mejorando la página, Pronto estará disponible !" *//>
       </div>
   );
 }
