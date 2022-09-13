@@ -1,8 +1,8 @@
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
-import ItemCount from "../ItemCount/ItemCount";
-import ItemList from "../itemList/ItemList";
+import ItemCount from "./ItemCount";
+import ItemList from "./ItemList";
 
 const productos = [
     {

@@ -1,0 +1,31 @@
+.container{
+    width: 95%;
+    margin: auto;
+}
+.detail{
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.detail_imagen{
+    width: 100%;
+}
+.content{
+    width: 100%;
+}
+
+@media (min-width:768px) {
+    .container{
+        width: 65%;
+    }
+    .detail_imagen{
+        width: 50%;
+    }
+    .content{
+        padding-left: 3rem;
+        width: 50%;
+    }
+}
+
