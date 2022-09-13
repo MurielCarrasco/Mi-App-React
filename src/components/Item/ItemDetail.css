@@ -15,7 +15,15 @@
 .content{
     width: 100%;
 }
-
+.nombre{
+    margin: 2rem;
+}
+.precio{
+    margin: 2rem;
+}
+.descripcion-card {
+    margin: 3rem;
+}
 @media (min-width:768px) {
     .container{
         width: 65%;

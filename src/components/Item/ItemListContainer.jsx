@@ -81,11 +81,11 @@ const ItemListContainer = (props) => {
                         <p className="text-center">{props.texto}</p>
                     </div>
                 </div>
-                <div className="row">
+                {/* <div className="row">
                     <div className="col-md-4">
                         <ItemCount stock={10} initial={1} onAdd={0} />
                     </div>
-                </div>
+                </div> */}
             </div>
         </div>
        /*  <div>

@@ -3,6 +3,7 @@ import ItemDetail from "./ItemDetail";
 
 const product = {
     "id":1 ,
+    "nombre": "Vestido Mujer primaveral",
     "descripcion" : "Vestido con cinturón unicolor ribete fruncido, Talla S - M - L - XL , Disponible en color Veige - Blanco - Negro - Burdeo", 
     "precio": 12590 , 
     "imagen":"vestido-1.jpeg"
