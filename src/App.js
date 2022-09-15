@@ -4,17 +4,20 @@ import NavBar from './components/navbar/NavBar';
 import ItemListContainer from './components/Item/ItemListContainer'; 
 import './components/CartWidget/cartWidget.css';
 import ItemDetailContainer from './components/Item/ItemDetailContainer';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 
 
 function App() {
   return (
-    <div>
+    <BrowserRouter>
       <NavBar />
-      <ItemListContainer texto="Estamos creando cards"
-      /* greeting="Estamos Mejorando la página, Pronto estará disponible !" */ />
-      <ItemDetailContainer />
-      </div>
+      <Routes >
+        <Route path='/' element={<ItemListContainer /* greeting="Estamos Mejorando la página, Pronto estará disponible !"  *//>} />
+        <Route path='/category/:categoryId' element={<ItemListContainer /> }/>
+        <Route path='/detalle/:detalleId' element={<ItemDetailContainer /> }/>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
