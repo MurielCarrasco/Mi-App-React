@@ -5,19 +5,21 @@ import ItemListContainer from './components/Item/ItemListContainer';
 import './components/CartWidget/cartWidget.css';
 import ItemDetailContainer from './components/Item/ItemDetailContainer';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
+import estilos from './components/Item/item.css';   
 
 
 function App() {
   return (
-    <BrowserRouter>
-      <NavBar />
-      <Routes >
-        <Route path='/' element={<ItemListContainer /* greeting="Estamos Mejorando la página, Pronto estará disponible !"  *//>} />
-        <Route path='/category/:categoryId' element={<ItemListContainer /> }/>
-        <Route path='/detalle/:detalleId' element={<ItemDetailContainer /> }/>
-      </Routes>
-    </BrowserRouter>
+    <main className={estilos.main}>
+      <BrowserRouter>
+        <NavBar />
+        <Routes >
+          <Route path='/' element={<ItemListContainer saludo="Bienvenidos" /* greeting="Estamos Mejorando la página, Pronto estará disponible !"  *//>} />
+          <Route path='/category/:categoryId' element={<ItemListContainer /> }/>
+          <Route path='/detail/:detalleId' element={<ItemDetailContainer /> }/>
+        </Routes>
+      </BrowserRouter>
+    </main>
   );
 }
 

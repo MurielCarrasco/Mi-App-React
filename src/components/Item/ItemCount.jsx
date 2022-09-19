@@ -2,40 +2,23 @@ import React from "react";
 import { useState } from "react";
 
 const ItemCount = ({stock, initial, onAdd}) => {
-    const [itemStock, setItemStock] = useState (stock);
-    const [itemInitial, setItemInitial] = useState (initial);
-    const [itemAdd, setItemAdd] = useState (onAdd);
+    const [count, setCount] = useState(initial);
+    
+    const sumar = () => {
+        count < stock && setCount(count + 1);
+    };
 
-    const modificarItems = (valor) => {
-        if (valor <=itemStock && valor > 0 ){
-            setItemInitial (valor);
-        }
-    }
-    const agregarProducto = () =>{
-        if (itemInitial <= itemStock) {
-            setItemStock (itemStock - itemInitial);
-            setItemAdd (itemAdd + itemInitial)
-        }
-    }
+    const restar = () => {
+        setCount(count - 1);
+    };
 
     return (
         <div className="container-fluid">
-            <div className="row">
-                <div className="col-md-8">
-                    <div className="input-group">
-                        <input className="btn btn-secondary" type="button" value="-" onClick={() =>
-                        {modificarItems(itemInitial - 1)}} />
-                        <input className="form-control text-center" type="text" value={itemInitial} onChange={()=>{}} />
-                        <input className="btn btn-secondary" type="button" value="+" onClick={() =>
-                        {modificarItems(itemInitial + 1)}} />
-                        
-                    </div>
-                    <div className="d-grid pt-3 gap-2">
-                        <input className="btn btn-light" type="button" value="Agregar al carro" onClick={() =>
-                        {agregarProducto()}}/>
-                    </div>
-                    <p>Productos seleccionados: {itemAdd}</p>
-                </div>
+            <div className="input-group">
+                <button onClick={sumar}>+</button>
+                <button onClick={restar}>-</button>
+                <p>Count: {count} </p>
+                <button onClick={() => onAdd(count)}>Agregar al carrito</button>       
             </div>
         </div>
     )

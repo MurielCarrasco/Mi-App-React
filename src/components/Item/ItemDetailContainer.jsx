@@ -61,29 +61,33 @@ const productosDetalle = [
     } 
 ];
 
-export const ItemDetailContainer = () => {
+const ItemDetailContainer = () => {
 
-    const [items, setItems] = useState ({});
+    const [item, setItem] = useState ({});
     const {detalleId} = useParams ();
 
     useEffect(() => {
-        const promesaProductos= new Promise((resolve) => {
+        const promesaP= new Promise((res, rej) => {
+            const producto = productosDetalle.find((producto) => producto.id === Number(detalleId));
             setTimeout(() => {
-                resolve(productosDetalle);
-            }, 2000);
+                res(producto);
+            }, 500);
         });
 
-        if (detalleId) {
-            promesaProductos.then(respuesta => setItems(
-            respuesta.filter(Mujer => Mujer.productosDetalle === detalleId)));
-        }
-        else {
-        promesaProductos.then((respuesta) =>
-            setItems(respuesta));
-        }
+        promesaP()
+        .then((data) => {
+            setItem(data);
+        })
+        .catch((error) => {
+            console.log(error);
+        });
     }, [detalleId]);
    
-	return <ItemDetail items={items} />;
+	return( 
+    <div>
+        <ItemDetail items={item} />;
+    </div>)
+
 };
 
 export default ItemDetailContainer;

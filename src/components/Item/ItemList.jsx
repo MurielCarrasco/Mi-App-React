@@ -1,9 +1,15 @@
 import React from "react";
 import Item from "./Item";
+import estilos from "./item.css"
 
-
-const ItemList = ({ items = [] }) => {
-     return items.map((x) => <Item key={x.id} info={x} />);
+const ItemList = ({ items }) => {
+     return (
+          <div className={estilos.containerCard} >
+              {items.map((item) => {
+                  return <Item key={item.id} item={item} />;
+              })}
+          </div>
+      );
 };
 
 export default ItemList;
