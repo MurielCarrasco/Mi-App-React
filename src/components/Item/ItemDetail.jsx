@@ -1,7 +1,7 @@
 import React, { useState }  from "react";
 import ItemCount from "./ItemCount";
 import "./ItemDetail.css" ;
-
+import { Link } from "react-router-dom";
 
 export const ItemDetail = ({item}) => {
     const [cantidad, setCantidad] = useState(0);
@@ -22,6 +22,7 @@ export const ItemDetail = ({item}) => {
                 <h2>Cantidad es {cantidad}</h2>
                         )}
                 <ItemCount stock={item.stock} initial={1} onAdd={onAdd} />
+                <Link to="./Cart/Cart">Ir al carrito</Link>
             </div>
         </div>
     );
