@@ -61,31 +61,27 @@ const productosDetalle = [
     } 
 ];
 
-const ItemDetailContainer = () => {
+export const ItemDetailContainer = () => {
 
     const [item, setItem] = useState ({});
     const {detalleId} = useParams ();
 
     useEffect(() => {
-        const promesaP= new Promise((res, rej) => {
-            const producto = productosDetalle.find((producto) => producto.id === Number(detalleId));
+        const promesaP= new Promise((resolve) => {
             setTimeout(() => {
-                res(producto);
+                resolve(productosDetalle);
             }, 500);
         });
 
-        promesaP()
-        .then((data) => {
-            setItem(data);
-        })
-        .catch((error) => {
-            console.log(error);
-        });
-    }, [detalleId]);
+        if (detalleId) {
+            promesaP.then(respuesta => {setItem(respuesta.find(producto => producto.id === Number(detalleId))
+                )});
+             }
+             }, [detalleId]);
    
 	return( 
     <div>
-        <ItemDetail items={item} />;
+        <ItemDetail item={item} />;
     </div>)
 
 };

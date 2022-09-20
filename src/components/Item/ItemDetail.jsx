@@ -11,7 +11,7 @@ export const ItemDetail = ({item}) => {
     };
     return (
         <div className="detail">
-            <img src={item.img} alt={item.title} />
+            <img src={item.img = "./../img/"+item.img} alt={item.title} />
             <div className="info">
                 <h2>{item.title}</h2>
                 <p className="descripcion-card">{item.descripcion}</p>
