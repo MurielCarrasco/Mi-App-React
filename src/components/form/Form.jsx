@@ -3,14 +3,15 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 
 const Form = () => {
+    //const [datosorm, setDatosForm] = useState(initialState);
     const [nombre, setNombre] = useState('');
     const [apellido, setApellido] = useState('');
     const [talle, setTalle] = useState('');
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log(nombre, apellido, talle); 
     };
+
 
     const handleChangeNombre = (event) => {
         setNombre(event.target.value);
@@ -28,10 +29,8 @@ const Form = () => {
         const handleMouseMove = (e) => {
         };
         window.addEventListener('mousemove', handleMouseMove);
-        console.log('Creo evento');
         return () => {
             window.removeEventListener('mousemove', handleMouseMove);
-            console.log('Borro evento');
         };
     });
 

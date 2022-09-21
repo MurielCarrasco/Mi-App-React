@@ -2,6 +2,7 @@ import React, { useState }  from "react";
 import ItemCount from "./ItemCount";
 import "./ItemDetail.css" ;
 import { Link } from "react-router-dom";
+import './item.css'
 
 export const ItemDetail = ({item}) => {
     const [cantidad, setCantidad] = useState(0);
@@ -11,9 +12,9 @@ export const ItemDetail = ({item}) => {
     };
     return (
         <div className="detail">
-            <img src={ "./../img/"+item.imagen} alt={item.title} />
+            <img src={ "./../img/"+item.imagen} alt={item.titulo} />
             <div className="info">
-                <h2>{item.title}</h2>
+                <h2>{item.Titulo}</h2>
                 <p className="descripcion-card">{item.descripcion}</p>
                 <h3>${item.precio}.-</h3>
                      {cantidad === 0 ? (

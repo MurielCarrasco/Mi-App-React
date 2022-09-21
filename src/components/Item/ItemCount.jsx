@@ -11,14 +11,17 @@ const ItemCount = ({stock, initial, onAdd}) => {
     const restar = () => {
         setCount(count - 1);
     };
+    const agregarAlCarro = () => {
+        onAdd (count);
+    };
 
     return (
-        <div className="container-fluid">
-            <div className="input-group">
+        <div /* className="container-fluid" */>
+            <div /* className="input-group" */>
                 <button onClick={sumar}>+</button>
                 <button onClick={restar}>-</button>
                 <p>Count: {count} </p>
-                <button onClick={() => onAdd(count)}>Agregar al carrito</button>       
+                <button onClick={agregarAlCarro}>Agregar al carrito</button>       
             </div>
         </div>
     )

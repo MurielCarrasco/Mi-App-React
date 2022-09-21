@@ -1,0 +1,54 @@
+
+import React, { createContext, useState } from 'react';
+
+export const CartContext = createContext();
+
+const CartProvider = ({ children }) => {
+    const [cart, setCart] = useState([]);
+    
+    const addToCart = (item, cantidad) => {
+        if (isInCart(item.id)) {
+             sumarCantidad(item, cantidad);
+        } else {
+            setCart([...cart, { ...item, cantidad }]);
+        }
+    };
+    
+    const isInCart = (id) => {
+        return cart.some((producto) => producto.id === id);
+    };
+
+    const sumarCantidad = (item, cantidad) => {
+        const carritoActualizado = cart.map((producto) => {
+            if (producto.id === item.id) {
+                const productoActualizado = {...producto,
+                    cantidad: producto.cantidad + cantidad,
+                };
+                return productoActualizado;
+            } else {
+                return producto;
+            }
+        });
+        setCart(carritoActualizado);
+    };
+
+    console.log(cart);
+
+    const eliminarProd = (id) => {
+        console.log(`eliminando producto ${id}`);
+        const carritoFiltrado = cart.filter((prod) => prod.id !== id);
+        setCart(carritoFiltrado);
+    };
+    
+    const clearCart = () => {
+        setCart([]);
+    };
+
+    return (
+        <CartContext.Provider value={{ cart, addToCart, clearCart, eliminarProd }}>
+            {children}
+        </CartContext.Provider>
+    );
+};
+
+export default CartProvider;

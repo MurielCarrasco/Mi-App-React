@@ -3,7 +3,10 @@ import { Link } from "react-router-dom";
 
 const CartWidget = () => {
     return (
-        <Link> <i class="bi bi-cart2 carro"></i>   </Link> 
+        <div>
+        <Link> <i className="bi bi-cart2 carro"></i>   </Link> 
+        <span>0</span>
+        </div>
     )
 }
 

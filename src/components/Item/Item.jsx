@@ -1,14 +1,16 @@
 import React from "react";
-import estilos from './item.css';
+/* import estilos from './item.css'; */
+import './item.css';
 import { Link } from 'react-router-dom';  
 
 const Item = ({ item }) => {
     return (
-        <div className={estilos.card}>
+        <div className="row">
+        <div className="card col-md-3">
             <Link to={`/detail/${item.id}`}>
                 <img src={ "./../img/"+item.imagen} alt="" />
-                <div className={estilos.info}>
-                    <h2>{item.titulo}</h2>
+                <div className="info">
+                    <h2>{item.Titulo}</h2>
                     <h4>${item.precio}.-</h4>
                     <h5>#{item.category}</h5>
                     <Link to={`/detail/${item.id}`}>
@@ -17,8 +19,7 @@ const Item = ({ item }) => {
                 </div>
             </Link>
         </div>
+        </div>
     );
 };
 export default Item;
-
-/*   <img src={"img/"+imagen} className="card-img-top" alt={descripcion}/> */
