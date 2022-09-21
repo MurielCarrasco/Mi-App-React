@@ -1,12 +1,12 @@
 import React from "react";
-import estilos from './item.css';     
+import estilos from './item.css';
 import { Link } from 'react-router-dom';  
 
 const Item = ({ item }) => {
     return (
         <div className={estilos.card}>
             <Link to={`/detail/${item.id}`}>
-                <img src={item.img} alt="" />
+                <img src={ "./../img/"+item.imagen} alt="" />
                 <div className={estilos.info}>
                     <h2>{item.titulo}</h2>
                     <h4>${item.precio}.-</h4>
