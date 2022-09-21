@@ -26,7 +26,7 @@ const NavBar = () => {
                     <button className="btn btn-light" type="submit">Search</button>
                 </form>
                 <div className="col-md-2 d-flex align-items-center justify-content-center" >
-                    <NavLink to='cart'><CartWidget /> </NavLink>
+                    <NavLink to={'./Cart'}><CartWidget /> </NavLink>
                 </div>
             </div>
         </nav>

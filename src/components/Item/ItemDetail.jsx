@@ -17,12 +17,10 @@ export const ItemDetail = ({item}) => {
                 <p className="descripcion-card">{item.descripcion}</p>
                 <h3>${item.price}.-</h3>
                      {cantidad === 0 ? (
-                <h2>Cantidad es 0</h2>
-                            ) : (
-                <h2>Cantidad es {cantidad}</h2>
-                        )}
                 <ItemCount stock={item.stock} initial={1} onAdd={onAdd} />
-                <Link to="./Cart/Cart">Ir al carrito</Link>
+                            ) : (
+                <Link to="/Cart">Ir al carrito</Link>
+                )}
             </div>
         </div>
     );

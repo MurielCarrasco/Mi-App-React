@@ -1,5 +1,5 @@
 import React from 'react';
-import Form from '../form/Form.jsx';
+import Form from '../form/Form';
 
 const Cart = () => {
     return (
