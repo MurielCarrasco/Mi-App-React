@@ -16,9 +16,9 @@ const ItemCount = ({stock, initial, onAdd}) => {
     };
 
     return (
-        <div /* className="container-fluid" */>
-            <div /* className="input-group" */>
-                <button onClick={sumar}>+</button>
+        <div className="container-fluid">
+            <div className="input-grou">
+                <button onClick={sumar} className="m-1">+</button>
                 <button onClick={restar}>-</button>
                 <p>Count: {count} </p>
                 <button onClick={agregarAlCarro}>Agregar al carrito</button>       

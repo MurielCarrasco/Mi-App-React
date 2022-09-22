@@ -1,5 +1,4 @@
 import React from "react";
-/* import estilos from './item.css'; */
 import './item.css';
 import { Link } from 'react-router-dom';  
 

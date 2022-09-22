@@ -1,7 +1,7 @@
 import React from 'react';
 import { useContext } from 'react';
 import { CartContext } from '../Context/CartContext';
-/* import Form from '../form/Form'; */
+import Form from '../form/Form';
 
 const Cart = () => {
     const { cart, clearCart, eliminarProducto } = useContext(CartContext);
@@ -15,8 +15,9 @@ const Cart = () => {
                     <button onClick={() => eliminarProducto(producto.id)}>Eliminar Producto</button>
                 </div>
             ))}
-           {/*  <Form /> */}
+           
             <button onClick={clearCart}>Clear Cart</button>
+             <Form />
         </div>
     );
 };
