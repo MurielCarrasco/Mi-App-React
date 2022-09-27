@@ -3,13 +3,35 @@ import ItemCount from "./ItemCount";
 import "./ItemDetail.css" ;
 import { Link } from "react-router-dom";
 import './item.css'
+import { useContext } from "react";
+import { CartContext } from "../Context/CartContext";
 
-export const ItemDetail = ({item}) => {
+const ItemDetail = ({item}) => {
     const [cantidad, setCantidad] = useState(0);
+    const {addToCart, getProductoCarro} = useContext(CartContext);
+    
+    const onAdd = (cantidadItem) => {
+        setCantidad(cantidadItem);
+        addToCart(item, cantidadItem);
 
-    const onAdd = (arg) => {
-        setCantidad(arg);
+        /* if(arg>0){
+            addToCart(item, arg);
+        } else {
+            console.log("error")
+        } */
     };
+
+const quantity  = getProductoCarro(item.id);
+
+   /*  const restar =() => {
+        count > 0 && setCount(count -1);
+    };
+    const agregarAlCarro = () => {
+        if(count>0 && stock>=count){
+            onAdd(count);
+        }
+    }; */
+
     return (
         <div className="detail">
             <img src={ "./../img/"+item.imagen} alt={item.titulo} />
@@ -18,13 +40,15 @@ export const ItemDetail = ({item}) => {
                 <p className="descripcion-card">{item.descripcion}</p>
                 <h3>${item.precio}.-</h3>
                      {cantidad === 0 ? (
-                <ItemCount stock={item.stock} initial={1} onAdd={onAdd} />
+                        <ItemCount stock={item.stock} 
+                                   initial={quantity } 
+                                   onAdd={onAdd} />
                             ) : (
-                <Link to="/Cart">Ir al carrito</Link>
+                <Link to="/cart">Ir al carrito</Link>
                 )}
             </div>
         </div>
     );
-}
+                            }
 
 export default ItemDetail;

@@ -1,9 +1,14 @@
 import React from "react";
+import { useEffect } from "react";
 import { useState } from "react";
 
-const ItemCount = ({stock, initial, onAdd}) => {
+const ItemCount = ({stock, initial = 1, onAdd}) => {
     const [count, setCount] = useState(initial);
     
+    useEffect(() => {
+        setCount(initial);
+    }, [initial]);
+
     const sumar = () => {
         count < stock && setCount(count + 1);
     };
@@ -12,7 +17,7 @@ const ItemCount = ({stock, initial, onAdd}) => {
         setCount(count - 1);
     };
     const agregarAlCarro = () => {
-        onAdd (count);
+        onAdd(count);
     };
 
     return (
@@ -24,7 +29,7 @@ const ItemCount = ({stock, initial, onAdd}) => {
                 <button onClick={agregarAlCarro}>Agregar al carrito</button>       
             </div>
         </div>
-    )
-} 
+    );
+} ;
 
 export default ItemCount;

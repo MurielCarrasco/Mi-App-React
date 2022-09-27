@@ -15,10 +15,10 @@ const NavBar = () => {
 
                 <div className="collapse navbar-collapse col-md-4" id="navbarNavAltMarkup">
                     <div className="navbar-nav">
-                        <NavLink className="nav-link active" aria-current="page" to={'/'} >Productos</NavLink>
-                        <NavLink className="nav-link" to={'/category/Mujer'} >Mujer</NavLink>
-                        <NavLink className="nav-link" to={'/category/Hombre'} >Hombre</NavLink>
-                        <NavLink className="nav-link disabled" to={'/'}>Promociones</NavLink>
+                        <NavLink className="nav-link active" aria-current="page" to='/' >Productos</NavLink>
+                        <NavLink className="nav-link" to='/category/Mujer' >Mujer</NavLink>
+                        <NavLink className="nav-link" to='/category/Hombre' >Hombre</NavLink>
+                        <NavLink className="nav-link disabled" to='/'>Promociones</NavLink>
                     </div>
                 </div>
                 <form className="d-flex col-md-3">
@@ -26,7 +26,7 @@ const NavBar = () => {
                     <button className="btn btn-light" type="submit">Search</button>
                 </form>
                 <div className="col-md-2 d-flex align-items-center justify-content-center" >
-                    <NavLink to={'./Cart'}><CartWidget /> </NavLink>
+                    <NavLink to='./Cart'><CartWidget /> </NavLink>
                 </div>
             </div>
         </nav>

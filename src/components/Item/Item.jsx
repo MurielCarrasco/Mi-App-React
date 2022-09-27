@@ -4,21 +4,23 @@ import { Link } from 'react-router-dom';
 
 const Item = ({ item }) => {
     return (
-        <div className="row">
+        
         <div className="card col-md-3">
             <Link to={`/detail/${item.id}`}>
-                <img src={ "./../img/"+item.imagen} alt="" />
+                <div className="imagen-tarjeta">
+                    <img src={ "./../img/"+item.imagen} alt="" />
+                </div>
                 <div className="info">
-                    <h2>{item.Titulo}</h2>
-                    <h4>${item.precio}.-</h4>
-                    <h5>#{item.category}</h5>
+                    <h3>{item.Titulo}</h3>
+                    <h5>${item.precio}.-</h5>
+                    <h6>#{item.category}</h6>
                     <Link to={`/detail/${item.id}`}>
                         <button>Ver detalle del producto</button>
                     </Link> 
                 </div>
             </Link>
         </div>
-        </div>
+       
     );
 };
 export default Item;
