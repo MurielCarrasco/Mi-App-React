@@ -8,7 +8,7 @@ import { CartContext } from "../Context/CartContext";
 
 const ItemDetail = ({item}) => {
     const [cantidad, setCantidad] = useState(0);
-    const {addToCart, getProductoCarro} = useContext(CartContext);
+    const {addToCart, getCompra} = useContext(CartContext);
     
     const onAdd = (cantidadItem) => {
         setCantidad(cantidadItem);
@@ -21,7 +21,7 @@ const ItemDetail = ({item}) => {
         } */
     };
 
-const quantity  = getProductoCarro(item.id);
+const quantity  = getCompra(item.id);
 
    /*  const restar =() => {
         count > 0 && setCount(count -1);

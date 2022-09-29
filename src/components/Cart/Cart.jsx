@@ -28,10 +28,10 @@ const Cart = () => {
                 </div>
             ))}
            
-            <button onClick={clearCart}>Limpiar Cart</button>
+            <button onClick={clearCart}>Limpiar Carrito</button>
             <h4>TOTAL: ${total}</h4>
             <div>
-             <button >Formulario para Despacho</button>
+             <button /* onClick={<Form />} */>Formulario para Despacho</button>
                 <Form />
              </div>
         </div>

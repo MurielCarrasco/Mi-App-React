@@ -12,7 +12,7 @@ body {
 
 .active {
     color: white;
-    background-color: black;
+    background-color: rgb(52, 101, 165);
     padding: 8px;
     border-radius: 8px;
 }
