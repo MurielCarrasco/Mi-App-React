@@ -21,7 +21,8 @@ const productos = [
         "descripcion" : "Vestido con cinturón con estampado floral de manga mariposa bajo con fruncido",     
         "precio": 15290, 
         "imagen":"vestido-2.jpeg",
-        "category":"Mujer"
+        "category":"Mujer",
+        "stock": "10",
     },
     {
         "id":3 ,
@@ -29,7 +30,8 @@ const productos = [
         "descripcion" : "Hombres Capucha con cremallera con cordón con forro térmico sin camiseta",     
         "precio": 13090, 
         "imagen":"hombre-capucha-3.jpeg",
-        "category":"Hombre"
+        "category":"Hombre",
+        "stock": "10",
     },
     {
         "id":4 ,
@@ -37,7 +39,8 @@ const productos = [
         "descripcion" : "Hombres Cazadora mezclilla desgarro con botón delantero",
         "precio": 35590, 
         "imagen":"hombre-cazadora-4.jpeg",
-        "category":"Hombre"
+        "category":"Hombre",
+        "stock": "10",
     },
     {
         "id":5 ,
@@ -45,7 +48,8 @@ const productos = [
         "descripcion" : "Sandalias minimalista con tacón delgado con tira tobillera", 
         "precio": 16290, 
         "imagen":"sandalia-5.jpeg",
-        "category":"Mujer"
+        "category":"Mujer",
+        "stock": "10",
     },
     {
         "id":6 ,
@@ -53,7 +57,8 @@ const productos = [
         "descripcion" : "Zapatillas de skate con parche de letra con cordón delantero",   
         "precio": 21090, 
         "imagen":"zapatilla-6.jpeg",
-        "category":"Mujer"
+        "category":"Mujer",
+        "stock": "10",
     },
     {
         "id":7 ,
@@ -61,7 +66,8 @@ const productos = [
         "descripcion":"Hombres Zapatillas de skate de color combinado con cordón delantero",    
         "precio": 27690, 
         "imagen":"zapatilla-h-7.jpeg",
-        "category":"Hombre"
+        "category":"Hombre",
+        "stock": "10",
     },
     {
         "id":8 ,
@@ -69,7 +75,8 @@ const productos = [
         "descripcion":"Hombres Zapatillas de skate con estampado de letra con cordón delantero",   
         "precio": 25190, 
         "imagen":"zapatilla-h-8.jpeg",
-        "category":"Hombre"
+        "category":"Hombre",
+        "stock": "10",
     } 
 ];
 const ItemListContainer = ( { saludo } ) => {
