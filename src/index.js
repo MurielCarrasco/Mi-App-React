@@ -3,7 +3,9 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import './index.css';
 
-/* import { initializeApp } from "firebase/app";
+import { initializeApp } from "firebase/app";
+import { getFirestore } from 'firebase/firestore';
+
 const firebaseConfig = {
   apiKey: "AIzaSyAD1btJFmQ8e8cIrgHwo7ImUksgdd9l7fs",
   authDomain: "mi-primer-e-commerce-debeb.firebaseapp.com",
@@ -14,7 +16,8 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
- */
+export const db = getFirestore(app);
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <App />

@@ -4,8 +4,10 @@ import { useState, useEffect} from "react";
 import ItemList from "./ItemList";
 import {useParams} from "react-router-dom"
 import './item.css';
+/* import { db } from 'firebase/firestore'; */
+import { getFirestore, collection, getDocs, query, where } from 'firebase/firestore';
 
-const productos = [
+/* const productos = [
     {
         "id":1 ,
         "Titulo": "Vestido con cinturón unicornio ",
@@ -78,41 +80,36 @@ const productos = [
         "category":"Hombre",
         "stock": "10",
     } 
-];
+]; */
 const ItemListContainer = ( { saludo } ) => {
     const [items, setItems] = useState([]);
-
+   /*  const [isLoading, setIsLoading] = useState(true); */
     const {categoryId} = useParams ();
 
     useEffect(() => {
-        const promesaP= () => new Promise(
-            (res, rej) => {
-                const productosF = productos.filter(
-                    (productos) => productos.category === categoryId
-                );
-                setTimeout(() => {
-                    res(categoryId ? productosF : productos);
-                }, 500);
-            });
 
-         promesaP()
-         .then((data) => {
-              setItems(data);
-            })
-            .catch((error) => {
-                console.log(error);
-            });
+        const db = getFirestore();
+        const itemCollection = collection(db, 'productos');
+        if (categoryId) {
+            const queryFilter = query(itemCollection, where('category', '==', categoryId))
+            getDocs(queryFilter)
+            .then(res => setItems(res.docs.map(producto => ({id: producto.id, ...producto.data()}))))
+        } else {
+            getDocs(itemCollection)
+            .then(res => setItems(res.docs.map(producto => ({id: producto.id, ...producto.data()}))))
+        }
+                
     }, [categoryId]);
            
        
     
      return (
-         <div >
-            <p style={{ textAlign: 'center' }}>{saludo}</p>
+                <> 
+                    <p style={{ textAlign: 'center' }}>{saludo}</p>
+                    <ItemList items={items}/>
+                </> 
+            
        
-            <ItemList items={items}/>
-        
-        </div>
        /*  <div>
             {<h1> {greeting} </h1> }
         </div> */

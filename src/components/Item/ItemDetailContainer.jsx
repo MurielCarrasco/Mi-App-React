@@ -1,8 +1,10 @@
 import React, {useEffect, useState} from "react";
 import ItemDetail from "./ItemDetail";
 import { useParams } from "react-router-dom";
+import { db } from 'firebase/firestore';
+import { getDoc, doc, collection } from 'firebase/firestore';
 
-const productosDetalle = [
+/* const productosDetalle = [
     {
         "id":1 ,
         "Titulo": "Vestido con cinturón unicornio ",
@@ -69,30 +71,24 @@ const productosDetalle = [
         "imagen":"zapatilla-h-8.jpeg",
         "category":"Hombre"
     }  
-];
+]; */
 
 export const ItemDetailContainer = () => {
-
     const [item, setItem] = useState ({});
     const {detalleId} = useParams ();
 
-    useEffect(() => {
-        const promesaP= new Promise((resolve) => {
-            setTimeout(() => {
-                resolve(productosDetalle);
-            }, 500);
-        });
-
-        if (detalleId) {
-            promesaP.then(respuesta => {setItem(respuesta.find(producto => producto.id === Number(detalleId))
-                )});
-             }
-             }, [detalleId]);
-   
-	return( 
-    <div>
-        <ItemDetail item={item} />;
-    </div>)
+        useEffect(() => {
+            const itemCollection = collection(db, 'productos');
+            const ref = doc(itemCollection, detalleId);
+            getDoc(ref).then((res) => {
+                setItem({ id: res.id, ...res.data() });
+            });
+        }, [detalleId]);
+	
+        return( 
+            <div>
+                <ItemDetail item={item} />;
+            </div>)
 
 };
 
