@@ -47,3 +47,14 @@ body {
 .detail .info h3 {
     font-size: 22px;
 }
+.div-link{
+
+    width: 50%;
+    margin: 3rem;
+}
+.link{
+    color: white;
+}
+.link-inicio{
+     font-size: 2rem;
+}

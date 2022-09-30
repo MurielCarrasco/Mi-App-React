@@ -2,11 +2,21 @@ import React from 'react';
 import { useContext } from 'react';
 import  { CartContext } from '../Context/CartContext';
 import Form from '../form/Form';
+import { Link } from "react-router-dom";
 
 const Cart = () => {
     const { cart, clearCart, eliminarProd, totalprecio } = useContext(CartContext);
     
     const total = totalprecio();
+    if (cart.length === 0) {
+        return (
+                <div className="div-link active">
+                  <h1>Carrito está vacío</h1>
+                  <div className="link-inicio">
+                    <Link className="link" aria-current="page" to='/' >Pinche aquí para elegir productos </Link>
+                  </div>
+                 </div>)
+    };
 
     return (
         <div style={{ display: 'flex',
