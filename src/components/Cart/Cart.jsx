@@ -1,13 +1,22 @@
 import React from 'react';
-import { useContext } from 'react';
+import { useState, useContext } from 'react'; 
 import  { CartContext } from '../Context/CartContext';
 import Form from '../form/Form';
 import { Link } from "react-router-dom";
 
 const Cart = () => {
+    const [idCompra, setIdCompra] = useState('');
     const { cart, clearCart, eliminarProd, totalprecio } = useContext(CartContext);
     
     const total = totalprecio();
+    const handleId = (id) => {
+        setIdCompra(id);
+    };
+
+    if (idCompra) {
+        return <h1> Gracias por tu compra, Tu id es : {idCompra}</h1>;
+    };
+    
     if (cart.length === 0) {
         return (
                 <div className="div-link active">
@@ -40,10 +49,13 @@ const Cart = () => {
            
             <button onClick={clearCart}>Limpiar Carrito</button>
             <h4>TOTAL: ${total}</h4>
-            <div>
-             <button /* onClick={<Form />} */>Formulario para Despacho</button>
-                <Form />
-             </div>
+            <Form 
+                cart={cart}
+                total={total}
+                clearCart={clearCart}
+                handleId={handleId}
+                />
+             
         </div>
         
     );

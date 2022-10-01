@@ -21,13 +21,12 @@ const ItemCount = ({stock, initial = 1, onAdd}) => {
     };
 
     return (
-        <div className="container-fluid">
-            <div className="input-grou">
-                <button onClick={sumar} className="m-1">+</button>
+        <div >
+                <button onClick={sumar} >+</button>
                 <button onClick={restar}>-</button>
                 <p>Count: {count} </p>
                 <button onClick={agregarAlCarro}>Agregar al carrito</button>       
-            </div>
+           
         </div>
     );
 } ;

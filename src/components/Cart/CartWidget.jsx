@@ -1,12 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
- export const CartWidget = () => {
-    
+import { CartContext } from '../Context/CartContext';
+ 
+export const CartWidget = () => {
+    const {totalCantidad} = CartContext();
     return (
         <div>
         <Link> <i className="bi bi-cart2 carro"></i>   </Link> 
-        <span > 0 </span>
+        <span > {totalCantidad () || ''} </span>
         </div>
     );
 };

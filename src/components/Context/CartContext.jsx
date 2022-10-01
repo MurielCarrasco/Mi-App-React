@@ -68,7 +68,7 @@ const totalprecio = () => {
  
     useEffect(() => {
         totalCantidad();
-    }, [cart]);
+    }, [ cart ]); // tengo este error mno entiendo por que 
 
     return (
         <CartContext.Provider 
@@ -82,7 +82,7 @@ const totalprecio = () => {
                         getCompra,
                          }}>
             {children}
-        </CartContext.Provider> )
+        </CartContext.Provider> );
 };
 
 export default CartProvider;
