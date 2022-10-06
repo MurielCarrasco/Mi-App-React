@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
-import { addDoc, collection, doc, serverTimestamp, updateDoc,} from 'firebase/firestore';
-import { db } from '../../firebaseConfig';
+import { addDoc, collection, doc, serverTimestamp, updateDoc} from 'firebase/firestore';
+import { db } from '../firebase/firebaseConfig';
 
 const Form = ({ cart, total, clearCart, handleId}) => {
     const [nombre, setNombre] = useState('');
