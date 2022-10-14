@@ -7,7 +7,7 @@
     box-sizing: border-box;
 }
 
-.color-navbar {
+.navbar {
     background-color: rgb(52, 101, 165);
   }
   
@@ -66,10 +66,13 @@
     padding: 1rem;
     font-size: 1.2rem;
   }
-  
+  .foto-logo{
+    width: 80px;
+    height: 60px;
+} 
   .nav-link {
     border-radius: 25px;
-    margin-left: 2rem;
+    margin-left: 1rem;
   }
   .nav-link:hover {
     background-color: rgb(52, 101, 165);
@@ -121,3 +124,4 @@
   .deescripcion{
     margin: 3rem;
   }
+  
