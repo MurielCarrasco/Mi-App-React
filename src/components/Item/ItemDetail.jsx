@@ -6,7 +6,7 @@ import './item.css'
 import { useContext } from "react";
 import { CartContext } from "../Context/CartContext";
 
-const ItemDetail = ({item}) => {
+const ItemDetail = ({ item }) => {
     const [cantidad, setCantidad] = useState(0);
     const {addToCart, getCompra} = useContext(CartContext);
     
@@ -34,7 +34,7 @@ const quantity  = getCompra(item.id);
 
     return (
         <div className="detail">
-            <img src={ "./../img/"+item.imagen} alt={item.titulo} />
+            <img src={ "./../img/"+item.imagen} alt={item.Titulo} />
             <div className="info">
                 <h2>{item.Titulo}</h2>
                 <p className="descripcion-card">{item.descripcion}</p>

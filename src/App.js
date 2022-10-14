@@ -8,6 +8,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import estilos from './components/Item/item.css'; 
 import Cart from  './components/Cart/Cart' ;
 import CartProvider from './components/Context/CartContext';
+import Footer from './components/footer/Footer';
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
           <Route path='/detail/:detalleId' element={<ItemDetailContainer /> }/>
           <Route path="/cart" element={<Cart />} /> 
         </Routes>
+        <Footer />
       </BrowserRouter>
       </CartProvider>
     </main>
