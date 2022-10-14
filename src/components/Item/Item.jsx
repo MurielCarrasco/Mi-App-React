@@ -13,7 +13,7 @@ const Item = ({ info }) => {
           </h4>
           <p className="card-text">${info.precio}</p>
           <p>#{info.category}</p>
-          <Link to={`/product/${info.id}`}>
+          <Link to={`/product/${info.tid}`}>
             <button className="btn btn-primary">Ver detalle del producto</button>
           </Link>
         </div>

@@ -26,13 +26,13 @@ const ItemListContainer = () => {
       );
       getDocs(queryFilter).then((res) =>
         setItems(
-          res.docs.map((product) => ({ id: product.id, ...product.data() }))
+          res.docs.map((product) => ({ tid: product.id, ...product.data() }))
         )
       );
     } else {
       getDocs(queryCollection).then((res) =>
         setItems(
-          res.docs.map((product) => ({ id: product.id, ...product.data() }))
+          res.docs.map((product) => ({ tid: product.id, ...product.data() }))
         )
       );
     }
