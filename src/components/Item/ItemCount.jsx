@@ -1,34 +1,47 @@
 import React from "react";
-import { useEffect } from "react";
 import { useState } from "react";
 
-const ItemCount = ({stock, initial = 1, onAdd}) => {
-    const [count, setCount] = useState(initial);
-    
-    useEffect(() => {
-        setCount(initial);
-    }, [initial]);
+const ItemCount = (props) => {
+  const [count, setCount] = useState(props.initial);
 
-    const sumar = () => {
-        count < stock && setCount(count + 1);
-    };
+  function aumentar() {
+    if (count < props.stock) {
+      setCount(count + 1);
+    }
+  }
 
-    const restar = () => {
-        setCount(count - 1);
-    };
-    const agregarAlCarro = () => {
-        onAdd(count);
-    };
+  function disminuir() {
+    if (count > 1) {
+      setCount(count - 1);
+    }
+  }
 
-    return (
-        <div >
-                <button onClick={sumar} >+</button>
-                <button onClick={restar}>-</button>
-                <p>Count: {count} </p>
-                <button onClick={agregarAlCarro}>Agregar al carrito</button>       
-           
+  return (
+    <div className="card item-count">
+      <div className="card-body">
+        <div className="flexcenter">
+          <button className="item-count__inputs" onClick={disminuir}>
+            <b>-</b>
+          </button>
+          <p> {count} </p>
+          <button className="item-count__inputs" onClick={aumentar}>
+            <b>+</b>
+          </button>
         </div>
-    );
-} ;
+        <p className="text-center">
+          <button
+            className="btn btn-primary mt-2"
+            onClick={() => props.onAdd(count)}
+          >
+            Agregar al carrito
+          </button>
+        </p>
+        <p className="text-center item-count__text">
+          El stock <b>disponible</b> es: {props.stock} unidades
+        </p>
+      </div>
+    </div>
+  );
+};
 
 export default ItemCount;

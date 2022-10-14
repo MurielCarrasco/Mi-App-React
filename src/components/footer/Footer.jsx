@@ -10,9 +10,9 @@ const Footer = () => {
                
             </div>
             <div className="redes-footer">
-                <i class="bi bi-facebook"></i>
-                <i class="bi bi-instagram"></i>
-                <i class="bi bi-whatsapp"></i>
+                <i className="bi bi-facebook"></i>
+                <i className="bi bi-instagram"></i>
+                <i className="bi bi-whatsapp"></i>
             </div>
             <br />
             <div>

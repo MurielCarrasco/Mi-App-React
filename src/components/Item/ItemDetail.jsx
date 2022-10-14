@@ -1,54 +1,55 @@
-import React, { useState }  from "react";
+import React from "react";
 import ItemCount from "./ItemCount";
-import "./ItemDetail.css" ;
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import './item.css'
-import { useContext } from "react";
-import { CartContext } from "../Context/CartContext";
+import { useCartContext } from "../Context/CartContext";
 
 const ItemDetail = ({ item }) => {
-    const [cantidad, setCantidad] = useState(0);
-    const {addToCart, getCompra} = useContext(CartContext);
-    
-    const onAdd = (cantidadItem) => {
-        setCantidad(cantidadItem);
-        addToCart(item, cantidadItem);
+  const [goToCart, setGoToCart] = useState(false);
 
-        /* if(arg>0){
-            addToCart(item, arg);
-        } else {
-            console.log("error")
-        } */
-    };
+  const { addItem } = useCartContext();
 
-const quantity  = getCompra(item.id);
+  function onAdd(quantity) {
+    setGoToCart(true);
+    addItem(item, quantity);
+  }
 
-   /*  const restar =() => {
-        count > 0 && setCount(count -1);
-    };
-    const agregarAlCarro = () => {
-        if(count>0 && stock>=count){
-            onAdd(count);
-        }
-    }; */
-
-    return (
-        <div className="detail">
-            <img src={ "./../img/"+item.imagen} alt={item.Titulo} />
-            <div className="info">
-                <h2>{item.Titulo}</h2>
-                <p className="descripcion-card">{item.descripcion}</p>
-                <h3>${item.precio}.-</h3>
-                     {cantidad === 0 ? (
-                        <ItemCount stock={item.stock} 
-                                   initial={quantity } 
-                                   onAdd={onAdd} />
-                            ) : (
-                <Link to="/cart">Ir al carrito</Link>
-                )}
-            </div>
+  return (
+    <div className="container-card mt-5">
+      <div className="row">
+        <div className="col-md-6">
+          <img
+            src={ "./../img/"+item.imagen}
+            alt={item.Titulo}
+            className="img-fluid item-detail__img"
+          />
         </div>
-    );
-                            }
+        <div className="col-md-6">
+          <h2 className="text-center item-detail__title">{item.Titulo}</h2>
+          <p>{item.descripcion}</p>
+          <p className="text-center">${item.precio}</p>
+          {goToCart ? (
+            <div className="row mt-5">
+              <div className="col-md-6 text-center">
+                <Link to="/cart">
+                  <button className="btn btn-success">Ir al carrito</button>
+                </Link>
+              </div>
+              <div className="col-md-6 text-center">
+                <Link to="/">
+                  <button className="btn btn-warning">Seguir comprando</button>
+                </Link>
+              </div>
+            </div>
+          ) : (
+            <div className="col-md-6 offset-3">
+              <ItemCount initial={1} stock={item.stock} onAdd={onAdd} />
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export default ItemDetail;

@@ -1,32 +1,30 @@
-import './App.css';
-import './components/navbar/navbar.css';
-import NavBar from './components/navbar/NavBar';
-import ItemListContainer from './components/Item/ItemListContainer'; 
-import './components/Cart/cartWidget.css';
-import ItemDetailContainer from './components/Item/ItemDetailContainer';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import estilos from './components/Item/item.css'; 
-import Cart from  './components/Cart/Cart' ;
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import ItemDetailContainer from "./components/Item/ItemDetailContainer";
+import ItemListContainer from "./components/Item/ItemListContainer";
+import NavBar from "./components/navbar/NavBar";
+import Cart from "./components/Cart/Cart";
 import CartProvider from './components/Context/CartContext';
+import Checkout from './components/Cart/Checkout';
 import Footer from './components/footer/Footer';
-
 
 function App() {
   return (
-    <main className={estilos.main}>
-      <CartProvider>
+    <>
       <BrowserRouter>
-        <NavBar />
-        <Routes >
-          <Route path='/' element={<ItemListContainer saludo="Bienvenidos" /* greeting="Estamos Mejorando la página, Pronto estará disponible !"  *//>} />
-          <Route path='/category/:categoryId' element={<ItemListContainer /> }/>
-          <Route path='/detail/:detalleId' element={<ItemDetailContainer /> }/>
-          <Route path="/cart" element={<Cart />} /> 
-        </Routes>
+        <CartProvider>
+          <NavBar />
+          <Routes>
+            <Route path="/" element={<ItemListContainer />} />
+            <Route path="/category/:categoria" element={<ItemListContainer />} />
+            <Route path="/product/:detalleId" element={<ItemDetailContainer />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/checkout" element={<Checkout />} />
+          </Routes>
+        </CartProvider>
         <Footer />
       </BrowserRouter>
-      </CartProvider>
-    </main>
+
+    </>
   );
 }
 

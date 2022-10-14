@@ -1,46 +1,50 @@
 import React from "react";
-import { useState, useEffect} from "react";
-/* import ItemCount from "./ItemCount"; */
+import { useEffect } from "react";
+import { useState } from "react";
 import ItemList from "./ItemList";
-import {useParams} from "react-router-dom"
-import './item.css';
-/* import { db } from 'firebase/firestore'; */
-import { getFirestore, collection, getDocs, query, where } from 'firebase/firestore';
+import { useParams } from "react-router-dom";
+import {
+  getFirestore,
+  collection,
+  getDocs,
+  query,
+  where,
+} from "firebase/firestore";
 
+const ItemListContainer = () => {
+  const [items, setItems] = useState([]);
+  const { categoria } = useParams();
 
-const ItemListContainer = ( { saludo } ) => {
-    const [items, setItems] = useState([]);
-   /*  const [isLoading, setIsLoading] = useState(true); */
-    const {categoryId} = useParams ();
+  useEffect(() => {
+    const querybd = getFirestore();
+    const queryCollection = collection(querybd, "productos");
 
-    useEffect(() => {
+    if (categoria) {
+      const queryFilter = query(
+        queryCollection,
+        where("categoria", "==", categoria)
+      );
+      getDocs(queryFilter).then((res) =>
+        setItems(
+          res.docs.map((product) => ({ id: product.id, ...product.data() }))
+        )
+      );
+    } else {
+      getDocs(queryCollection).then((res) =>
+        setItems(
+          res.docs.map((product) => ({ id: product.id, ...product.data() }))
+        )
+      );
+    }
+  }, [categoria]);
 
-        const db = getFirestore();
-        const itemCollection = collection(db, 'productos');
-        if (categoryId) {
-            const queryFilter = query(itemCollection, where('category', '==', categoryId))
-            getDocs(queryFilter)
-            .then(res => setItems(res.docs.map(producto => ({id: producto.id, ...producto.data()}))))
-        } else {
-            getDocs(itemCollection)
-            .then(res => setItems(res.docs.map(producto => ({id: producto.id, ...producto.data()}))))
-        }
-                
-    }, [categoryId]);
-           
-       
-    
-     return (
-                <> 
-                    <p style={{ textAlign: 'center' }}>{saludo}</p>
-                    <ItemList items={items}/>
-                </> 
-            
-       
-       /*  <div>
-            {<h1> {greeting} </h1> }
-        </div> */
-     );
+  return (
+    <div className="container">
+      <div className="row">
+        <ItemList productos={items} />
+      </div>
+    </div>
+  );
 };
 
 export default ItemListContainer;

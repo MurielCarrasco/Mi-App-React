@@ -1,26 +1,24 @@
 import React from "react";
-import './item.css';
 import { Link } from 'react-router-dom';  
 
-const Item = ({ item }) => {
+const Item = ({ info }) => {
     return (
-        
-        <div className="card col-md-3">
-            <Link to={`/detail/${item.id}`}>
-                <div className="imagen-tarjeta">
-                    <img src={ "./../img/"+item.imagen} alt="" />
-                </div>
-                <div className="info">
-                    <h3>{item.Titulo}</h3>
-                    <h5>${item.precio}.-</h5>
-                    <h6>#{item.category}</h6>
-                    <Link to={`/detail/${item.id}`}>
-                        <button>Ver detalle del producto</button>
-                    </Link> 
-                </div>
-            </Link>
+        <div className="col-md-3 mt-3 card card-product">
+        <Link to={`/product/${info.id}`}>
+          <img src={ "./../img/"+info.imagen} className="card-img-top" alt={info.Titulo} />
+        </Link>
+        <div className="card-body">
+          <h4 className="card-title text-center">
+            <b>{info.Titulo}</b>
+          </h4>
+          <p className="card-text">${info.precio}</p>
+          <p>#{info.category}</p>
+          <Link to={`/product/${info.id}`}>
+            <button className="btn btn-primary">Ver detalle del producto</button>
+          </Link>
         </div>
-       
-    );
+      </div>
+  );
 };
+
 export default Item;
