@@ -9,7 +9,7 @@ const CartWidget = () => {
     <NavLink to="/cart">
       <p className="text-center mt-4">
       <i className="bi bi-cart2 carro"></i>
-        <span className="badge rounded-pill text-bg-success">
+        <span className="badge rounded-pill text-bg-primary">
           {totalProducts() || ""}
         </span>
       </p>

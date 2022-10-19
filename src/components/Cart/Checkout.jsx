@@ -34,7 +34,7 @@ const Checkout = () => {
           <div className="col-md-12">
             <h1 className="text-center">Gracias por tu compra! </h1>
             <h3 className="text-center mt-3">
-              Te dejamos el codigo de seguimiento : {orderId}
+              Te dejamos el código de seguimiento : {orderId}
             </h3>
           </div>
         </div>
@@ -53,7 +53,7 @@ const Checkout = () => {
             <CartItem key={producto.id} producto={producto} />
           ))} */}
           <p className="text-center">
-            <b>Total a pagar : ${totalPrice()}</b>{" "}
+            <b>El Total a pagar es : ${totalPrice()}</b>{" "}
           </p>
         </div>
       </div>

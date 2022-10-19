@@ -9,7 +9,7 @@ const CartItem = ({ producto }) => {
     <div className="row">
       <div className="col-md-3">
         <img
-          src={producto.imagen}
+          src={"./../img/"+producto.imagen}
           alt={producto.Titulo}
           className="img-carrito"
         />
@@ -28,7 +28,7 @@ const CartItem = ({ producto }) => {
       <div className="col-md-3">
         <button
           onClick={() => removeItem(producto.id)}
-          className="btn btn-danger"
+          className="btn btn-primary"
         >
           Eliminar del carrito
         </button>

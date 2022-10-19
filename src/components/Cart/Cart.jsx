@@ -31,13 +31,13 @@ const Cart = () => {
           </p>
         </div>
         <div className="col-md-2">
-          <button className="btn btn-danger" onClick={clearCart}>
+          <button className="btn btn-primary" onClick={clearCart}>
             Limpiar carrito
           </button>
         </div>
         <div className="col-md-2">
           <Link to="/checkout">
-            <button className="btn btn-success">Finalizar compra</button>
+            <button className="btn btn-primary">Finalizar compra</button>
           </Link>
         </div>
       </div>

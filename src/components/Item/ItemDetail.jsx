@@ -32,12 +32,12 @@ const ItemDetail = ({ item }) => {
             <div className="row mt-5">
               <div className="col-md-6 text-center">
                 <Link to="/cart">
-                  <button className="btn btn-success">Ir al carrito</button>
+                  <button className="btn btn-primary">Ir al carrito</button>
                 </Link>
               </div>
               <div className="col-md-6 text-center">
                 <Link to="/">
-                  <button className="btn btn-warning">Seguir comprando</button>
+                  <button className="btn btn-primary">Seguir comprando</button>
                 </Link>
               </div>
             </div>
